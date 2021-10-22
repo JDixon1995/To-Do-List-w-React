@@ -1,11 +1,9 @@
 const Footer = () => {
     return (
-        <div id="footer">
-            <footer>
+            <footer className="footer">
                 <h4>Property of J.D. Industries</h4>
-                <p>Trademarked 2021</p>
+                <p>Trademarked copy@ 2021</p>
             </footer>
-        </div>
     )
 }
 

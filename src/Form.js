@@ -1,9 +1,11 @@
 const Form = () => {
     return (
-        <div>
+        <div className="form-div">
             <form>
-                <input type="text" />Task Name
-                <input type="date" />Task Due Date
+                <label>To Do:</label>
+                <input type="text" />
+                <label>Task Due Date:</label>
+                <input type="text" />
             </form>
         </div>
     )
