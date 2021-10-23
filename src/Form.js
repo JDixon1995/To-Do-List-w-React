@@ -1,6 +1,6 @@
 import Button from './Button'
 
-const Form = () => {
+const Form = ( {submitTask} ) => {
     return (
         <div className="form-div">
             <form>
@@ -8,7 +8,7 @@ const Form = () => {
                 <input type="text" className="form-input" />
                 <label>Task Due Date:</label>
                 <input type="text" className="form-input" />
-                <Button text="Submit To-Do" />
+                <Button text="Submit To-Do" onClick={submitTask}/>
             </form>
         </div>
     )

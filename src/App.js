@@ -1,20 +1,41 @@
 import Header from './Header';
 import Form from './Form';
 import Footer from './Footer';
-import Button from './Button';
 import { useState } from 'react';
 
 const App = () => {
 
-  const [todos, setToDos] = useState([])
+  const [todos, setToDos] = useState([
+    {
+      id: 1,
+      content: 'Wash car.',
+      dueDate: 'Nov. 12th',
+    },
+    {
+      id: 2,
+      content: 'Attend class',
+      dueDate: 'Nov. 15th',
+    },
+    {
+      id: 3,
+      content: 'Get Groceries.',
+      dueDate: 'Nov. 10th.',
+    }
+  ])
 
+  const addForm = () => {
+    console.log('Clicked')
+  }
 
+  const submitTask = () => {
+    console.log('Submit')
+  }
 
   return (
     <div className="container">
-      <Header />
+      <Header addForm={addForm}/>
       <br />
-      <Form />
+      <Form submitTask={submitTask} />
       <Footer />
     </div>
   );
