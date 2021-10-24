@@ -1,11 +1,13 @@
 import React from 'react'
+import ToDo from './ToDo'
 
 const ToDos = ( {todos} ) => {
     return (
         <>
-            {todos.map((todo) => (
-            <h3>{todo.content}</h3>
-            ))}
+            {todos.map((todo) => (<ToDo 
+            key={todo.id} 
+            todo={todo}
+            /> ))}
         </>
     )
 }

@@ -63,6 +63,13 @@
   font-family: inherit;
 }
 
+.to-do {
+  background: #f4f4f4;
+  margin: 7px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
 .footer {
   display: flex;
   justify-content: center;
@@ -70,3 +77,4 @@
   flex-direction: column;
   min-height: 10vh;
 }
+
