@@ -1,5 +1,6 @@
 import Header from './Header';
 import Form from './Form';
+import ToDos from './ToDos';
 import Footer from './Footer';
 import { useState } from 'react';
 
@@ -36,6 +37,7 @@ const App = () => {
       <Header addForm={addForm}/>
       <br />
       <Form submitTask={submitTask} />
+      <ToDos todos={todos} />
       <Footer />
     </div>
   );
