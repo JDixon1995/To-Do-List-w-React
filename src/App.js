@@ -38,7 +38,9 @@ const App = () => {
 
   return (
     <div className="container">
-      <Header onAdd={() => setShowAddToDo(!showAddToDo)} />
+      <Header onAdd={() => setShowAddToDo(!showAddToDo)}
+      showAdd={showAddToDo}
+      />
 
       {showAddToDo && <Form addToDo={submitToDo} />}
 
