@@ -2,13 +2,28 @@ import Header from './Header';
 import Form from './Form';
 import ToDos from './ToDos';
 import Footer from './Footer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const App = () => {
 
   const [showAddToDo, setShowAddToDo] = useState(false)
 
   const [todos, setToDos] = useState([])
+
+  useEffect(() =>{
+    const getToDos = async () => {
+      const toDosFromServer = await fetchToDos()
+      setToDos(toDosFromServer)
+    }
+    getToDos()
+  }, [])
+
+  const fetchToDos = async() => {
+    const res = await fetch('http://localhost:5000/todos')
+    const data = await res.json()
+
+    return data
+  }
 
   const submitToDo = (todo) => {
     const id = Math.floor(Math.random() * 1000 + 1)
