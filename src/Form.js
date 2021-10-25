@@ -14,13 +14,13 @@ const Form = ( {submitTask} ) => {
                        className="form-input" 
                        placeholder="task here..."
                        value={text} 
-                       onChange={(e) => setText(e)} />
+                       onChange={(e) => setText(e.target.value)} />
                 <label>Task Due Date:</label>
                 <input type="text" 
                        className="form-input"
                        placeholder="due date here..."
                        value={textDueDate} 
-                       onChange={(e) => setTextDueDate(e)} />
+                       onChange={(e) => setTextDueDate(e.target.value)} />
                 <Button text="Submit To-Do" onClick={submitTask}/>
             </form>
         </div>
