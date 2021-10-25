@@ -8,23 +8,7 @@ const App = () => {
 
   const [showAddToDo, setShowAddToDo] = useState(false)
 
-  const [todos, setToDos] = useState([
-    {
-      id: 1,
-      content: 'Wash car.',
-      dueDate: 'Nov. 12th',
-    },
-    {
-      id: 2,
-      content: 'Attend class',
-      dueDate: 'Nov. 15th',
-    },
-    {
-      id: 3,
-      content: 'Get Groceries.',
-      dueDate: 'Nov. 10th.',
-    }
-  ])
+  const [todos, setToDos] = useState([])
 
   const submitToDo = (todo) => {
     const id = Math.floor(Math.random() * 1000 + 1)
