@@ -26,19 +26,22 @@ const App = () => {
     }
   ])
 
-  const addForm = () => {
-    console.log('Clicked')
+  const submitToDo = () => {
+    console.log('Submit')
   }
 
-  const submitTask = () => {
-    console.log('Submit')
+  const deleteToDo = (id) => {
+    setToDos(todos.filter((todo) => todo.id !== id))
   }
 
   return (
     <div className="container">
       <Header onAdd={() => setShowAddToDo(!showAddToDo)} />
-      {showAddToDo && <Form submitTask={submitTask} />}
-      <ToDos todos={todos} />
+
+      {showAddToDo && <Form submitTask={submitToDo} />}
+
+      {todos.length > 0 ? (<ToDos todos={todos} onDelete={deleteToDo} />) : ('No To-Dos to do...')}
+
       <Footer />
     </div>
   );
