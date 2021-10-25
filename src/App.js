@@ -6,6 +6,8 @@ import { useState } from 'react';
 
 const App = () => {
 
+  const [showAddToDo, setShowAddToDo] = useState(false)
+
   const [todos, setToDos] = useState([
     {
       id: 1,
@@ -34,7 +36,9 @@ const App = () => {
 
   return (
     <div className="container">
-      <Header addForm={addForm}/>
+      <Header
+       showAdd={setShowAddToDo} 
+       setShowAddToDo={() => setShowAddToDo(!showAddToDo)} />
       <br />
       <Form submitTask={submitTask} />
       <ToDos todos={todos} />
