@@ -1,27 +1,40 @@
 import { useState } from 'react';
-import Button from './Button'
 
-const Form = ( {submitTask} ) => {
+const Form = ({addToDo}) => {
 
-    const [text, setText] = useState('')
-    const [textDueDate, setTextDueDate] = useState('')
+    const [content, setText] = useState('')
+    const [dueDate, setTextDueDate] = useState('')
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+
+        if(!content) {
+            alert('Please add text.')
+            return
+        }
+
+        addToDo({ content, dueDate })
+
+        setText('')
+        setTextDueDate('')
+    }
 
     return (
         <div className="form-div">
-            <form>
+            <form onSubmit={onSubmit}>
                 <label>To Do:</label>
                 <input type="text" 
                        className="form-input" 
                        placeholder="task here..."
-                       value={text} 
+                       value={content} 
                        onChange={(e) => setText(e.target.value)} />
                 <label>Task Due Date:</label>
                 <input type="text" 
                        className="form-input"
                        placeholder="due date here..."
-                       value={textDueDate} 
+                       value={dueDate} 
                        onChange={(e) => setTextDueDate(e.target.value)} />
-                <Button text="Submit To-Do" onClick={submitTask}/>
+                <input className='btn' type='submit' text='Submit Task' value='Save Task' />
             </form>
         </div>
     )

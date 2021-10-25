@@ -26,8 +26,10 @@ const App = () => {
     }
   ])
 
-  const submitToDo = () => {
-    console.log('Submit')
+  const submitToDo = (todo) => {
+    const id = Math.floor(Math.random() * 1000 + 1)
+    const newToDo = { id, ...todo }
+    setToDos([...todos, newToDo])
   }
 
   const deleteToDo = (id) => {
@@ -38,7 +40,7 @@ const App = () => {
     <div className="container">
       <Header onAdd={() => setShowAddToDo(!showAddToDo)} />
 
-      {showAddToDo && <Form submitTask={submitToDo} />}
+      {showAddToDo && <Form addToDo={submitToDo} />}
 
       {todos.length > 0 ? (<ToDos todos={todos} onDelete={deleteToDo} />) : ('No To-Dos to do...')}
 
