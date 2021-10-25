@@ -25,13 +25,23 @@ const App = () => {
     return data
   }
 
-  const submitToDo = (todo) => {
-    const id = Math.floor(Math.random() * 1000 + 1)
-    const newToDo = { id, ...todo }
-    setToDos([...todos, newToDo])
+  const submitToDo = async (todo) => {
+    const res = await fetch('http://localhost:5000/todos', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(todo),
+    })
+
+    const data = await res.json()
+
+    setToDos([...todos, data])
   }
 
-  const deleteToDo = (id) => {
+  const deleteToDo = async (id) => {
+    await fetch(`http://localhost:5000/todos/${id}`, {method: 'DELETE'})
+
     setToDos(todos.filter((todo) => todo.id !== id))
   }
 
